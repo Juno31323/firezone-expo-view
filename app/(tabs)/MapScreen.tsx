@@ -17,7 +17,7 @@ const MapScreen: React.FC = () => {
       const token = await AsyncStorage.getItem('token');
       if (!token) {
         // 로그인되지 않으면 로그인 화면으로 이동
-        router.replace('./LoginScreen');
+        router.replace('/LoginScreen');
       }
     };
 

@@ -15,7 +15,7 @@ export default function TabLayout() {
 
       // "MapScreen" 접근 시 로그인 확인
       if (!token && segments.includes('MapScreen')) {
-        router.replace('./LoginScreen');
+        router.replace('/LoginScreen');
       }
     };
     checkLoginStatus();
@@ -49,7 +49,7 @@ export default function TabLayout() {
           tabPress: (e) => {
             if (!isLoggedIn) {
               e.preventDefault(); // 기본 이동 방지
-              router.push('/(auth)/LoginScreen');
+              router.push('/LoginScreen');
             }
           },
         }}

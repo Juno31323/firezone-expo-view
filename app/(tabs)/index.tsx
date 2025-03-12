@@ -11,6 +11,7 @@ const HomeScreen: React.FC = () => {
     const checkLoginStatus = async () => {
       const token = await AsyncStorage.getItem('token');
       const storedUsername = await AsyncStorage.getItem('username');
+      console.log(storedUsername);
       if (token) {
         setIsLoggedIn(true);
         setUserName(storedUsername || '');
@@ -21,7 +22,7 @@ const HomeScreen: React.FC = () => {
   }, []);
 
   const handleLogin = () => {
-    router.push('./LoginScreen');
+    router.push('/LoginScreen');
   };
 
   const handleSignUp = () => {
@@ -32,11 +33,10 @@ const HomeScreen: React.FC = () => {
     await AsyncStorage.removeItem('token');
     await AsyncStorage.removeItem('username');
     setIsLoggedIn(false);
-    router.replace('./(tabs)/index'); // 로그아웃 후 다시 "index" 화면으로 돌아가기
   };
 
   const handleNavigateToMap = () => {
-    router.replace('./(tabs)/MapScreen'); // 지도 화면으로 이동
+    router.replace('/MapScreen'); // 지도 화면으로 이동
   };
 
   return (

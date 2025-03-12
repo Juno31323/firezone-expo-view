@@ -18,7 +18,8 @@ const LoginScreen: React.FC = () => {
 
       if (response.ok) {
         await AsyncStorage.setItem('token', data.access_token);
-        router.replace('./MapScreen'); // 로그인 성공 시 지도 화면으로 이동
+        await AsyncStorage.setItem('username', username);
+        router.replace('/'); // 로그인 성공 시 홈 화면으로 이동
       } else {
         alert(data.message || '로그인 실패');
       }
